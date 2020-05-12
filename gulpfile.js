@@ -18,13 +18,13 @@ gulp.task('html', function (callback) {
                     title: 'HTML include',
                     sound: false,
                     message: err.message
-                }
+                };
             })
         }))
         .pipe(fileinclude({
             prefix: '@@'
         }))
-        // .pipe(gulp.dest('./app/')); //Убрать если не надо собирать из шаблонов
+    // .pipe(gulp.dest('./app/')); //Убрать если не надо собирать из шаблонов
     callback();
 });
 
@@ -57,7 +57,7 @@ gulp.task('sass', function (callback) {
 
 // Задача для обновления сервера при изменениях во всех файлах с расширением .html .css
 gulp.task('watch', function () {
-    // Следит за изменениями в html, css, js и обновляет браузер
+    // Следит за изменениями в html, css и обновляет браузер
     watch(['./app/*.html', './app/css/**/*.css', './app/js/**/*.js'], gulp.parallel(browserSync.reload));
     // Следит за изменением в sass файлах и компилирует их в css
     // watch('./app/sass/**/*.sass', gulp.parallel('sass'));
